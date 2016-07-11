@@ -8,23 +8,16 @@
 
 #import "LeftVc.h"
 #import "UIView+Extension.h"
-#define testValue 300
+#import "Head.h"
 @implementation LeftVc
 
 
-- (instancetype)init{
-    if (self = [super init]) {
-        self.tabelViewLeft = testValue;
-    }
-    return self;
-}
 - (void)viewDidLoad{
     
-
-    UIView *tableview = [[UIView alloc] init];
+    UIView *tableview = [[UITableView alloc] init];
     
 
-    tableview.frame = CGRectMake(self.view.width - testValue, 0, testValue, self.view.height);
+    tableview.frame = CGRectMake(self.view.width - tableviewWidth, 0, tableviewWidth, self.view.height);
     
     tableview.backgroundColor = [UIColor redColor];
     
