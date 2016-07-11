@@ -49,7 +49,7 @@
     if (self = [super init]) {
         self.offset = offset;
         self.margin = margin;
-        
+
         [self setUpSubviewsWithLeftVc:leftVc ];
         [self setUpPanGe];
         
@@ -63,23 +63,22 @@
 
     
     self.contentView = [[UIView alloc] init];
-    self.contentView.backgroundColor = [UIColor grayColor];
     self.contentView.frame = CGRectMake( - _offset,
                                         0,
                                         self.view.width + _offset,
                                         self.view.height);
+    self.contentView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.contentView];
     
     self.actionView = [[UIView alloc] init];
     self.actionView.frame = self.view.frame;
-    self.actionView.width = self.contentView.width;
+    self.actionView.x += self.offset;
     
     self.the_leftVc.view.x = - (self.the_leftVc.view.width -  _offset);
     self.the_leftVc.view.y = 0;
     
     
     [self.contentView addSubview:self.the_leftVc.view];
-    self.actionView.backgroundColor = [UIColor orangeColor];
     self.actionView.alpha  = 0.4;
     [self.contentView addSubview:self.actionView];
     
@@ -103,7 +102,7 @@
     CGPoint currentPoint = [pan locationInView:self.actionView];
     CGFloat HoriDistance = currentPoint.x - self.originalPoint.x;
 
-    self.contentView.x = self.contentView.x > _margin ? self.contentView.x : self.contentView.x + HoriDistance ;
+    self.contentView.x = self.contentView.x >= _margin  && HoriDistance > 0 ? self.contentView.x : self.contentView.x + HoriDistance ;
     CGFloat contentViewMoveDistance =  _offset + self.contentView.x;
     NSLog(@"%lf",contentViewMoveDistance);
     
@@ -122,6 +121,9 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     self.originalPoint = [gestureRecognizer locationInView:self.actionView];
+    if (_originalPoint.x > self.view.width * 0.33) {
+        return NO;
+    }
     return YES;
 }
 

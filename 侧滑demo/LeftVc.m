@@ -19,7 +19,7 @@
 
     tableview.frame = CGRectMake(self.view.width - tableviewWidth, 0, tableviewWidth, self.view.height);
     
-    tableview.backgroundColor = [UIColor redColor];
+    tableview.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:tableview];
 

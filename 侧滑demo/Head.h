@@ -9,4 +9,4 @@
 #import <Foundation/Foundation.h>
 
 static const float tableviewWidth = 200.0f;
-static const float margin = 10.0f;
+static const float margin = 0.0f;
