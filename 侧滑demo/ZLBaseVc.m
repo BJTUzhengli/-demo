@@ -53,17 +53,11 @@
         self.the_leftVc = leftVc;
         self.the_centerVc = centerVc;
         
-        //设置阴影
-        self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.view.layer.shadowOpacity = 1.0;
-        self.view.layer.shadowRadius = 5.0;
-        self.view.layer.shadowOffset = CGSizeMake(0, 1);
-        self.view.clipsToBounds = NO;
-        
 
         [self setUpSubviewsWithLeftVc:leftVc centerVc:centerVc];
         [self setUpPanGe];
-        
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftAction) name:@"leftAction" object:nil];
     }
     return self;
 }
@@ -81,13 +75,20 @@
     [self.view addSubview:self.contentView];
     
     self.actionView = [[UIView alloc] init];
-    self.actionView.frame = self.view.frame;
+    self.actionView.frame = CGRectMake(0, 0, ZLScreenWidth, ZLScreenHeight);
     self.actionView.x += self.offset;
     self.the_leftVc.view.x = - (self.the_leftVc.view.width -  _offset);
-    self.the_leftVc.view.y = 0;
     
     [self.contentView addSubview:self.the_centerVc.view];
     self.the_centerVc.view.frame = self.actionView.frame;
+
+    
+    //设置阴影
+    self.the_leftVc.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.the_leftVc.view.layer.shadowOpacity = 1.0;
+    self.the_leftVc.view.layer.shadowRadius = 5.0;
+    self.the_leftVc.view.layer.shadowOffset = CGSizeMake(1, 0);
+    self.the_leftVc.view.clipsToBounds = NO;
 
     
     [self.contentView addSubview:self.the_leftVc.view];
@@ -114,11 +115,12 @@
     
     CGPoint currentPoint = [pan locationInView:self.actionView];
     CGFloat HoriDistance = currentPoint.x - self.originalPoint.x;
+    NSLog(@"%lf",self.contentView.x + HoriDistance);
 
-    self.contentView.x = self.contentView.x >= _margin  && HoriDistance > 0 ? self.contentView.x : self.contentView.x + HoriDistance ;
+    if (self.contentView.x + HoriDistance <= 0 && self.contentView.x + HoriDistance > -_offset) {
+        self.contentView.x += HoriDistance;
+    }
     CGFloat contentViewMoveDistance =  _offset + self.contentView.x;
-    NSLog(@"%lf",contentViewMoveDistance);
-    
     
     if (pan.state == UIGestureRecognizerStateEnded) {
         if (contentViewMoveDistance > ZLScreenWidth * 0.5) {
@@ -141,6 +143,7 @@
 }
 
 - (void)resetContentView{
+    self.showLeftView = NO;
 
     self.actionView.userInteractionEnabled = NO;
 
@@ -154,6 +157,7 @@
 
 - (void)holdContentView{
 
+    self.showLeftView = YES;
     self.actionView.userInteractionEnabled = NO;
 
     [UIView animateWithDuration:0.5 animations:^{
@@ -163,6 +167,15 @@
         self.actionView.userInteractionEnabled = YES;
 
     }];
+}
+
+
+- (void)leftAction{
+    if (self.showLeftView) {
+        [self resetContentView];
+    }else{
+        [self holdContentView];
+    }
 }
 
 

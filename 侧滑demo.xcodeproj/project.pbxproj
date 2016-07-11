@@ -118,12 +118,12 @@
 				1B6855CD1D337D72001EA687 /* ZLBaseVc.m */,
 				1B4809B81D33AD7A00A020FB /* LeftVc.h */,
 				1B4809B91D33AD7B00A020FB /* LeftVc.m */,
+				1BAFF9D71D33F326006A53D1 /* ZLCenterVc.h */,
+				1BAFF9D81D33F326006A53D1 /* ZLCenterVc.m */,
 				1B4809B21D33906100A020FB /* UIView+Extension.m */,
 				1B4809B31D33906100A020FB /* UIView+Extension.h */,
 				1B6855AA1D337D09001EA687 /* Info.plist */,
 				1B6855961D337D09001EA687 /* Supporting Files */,
-				1BAFF9D71D33F326006A53D1 /* ZLCenterVc.h */,
-				1BAFF9D81D33F326006A53D1 /* ZLCenterVc.m */,
 			);
 			path = "侧滑demo";
 			sourceTree = "<group>";

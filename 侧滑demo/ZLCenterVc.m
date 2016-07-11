@@ -16,8 +16,21 @@
 
 - (void)viewDidLoad{
     self.view.backgroundColor = [UIColor grayColor];
+ 
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"123" style:UIBarButtonItemStylePlain target:self action:@selector(leftAction)];
     
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
 }
 
+
+- (void)leftAction{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"leftAction" object:nil];
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+}
 
 @end
