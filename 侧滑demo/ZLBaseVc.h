@@ -20,7 +20,7 @@
  *
  *  @return
  */
-- (instancetype)initWithLeftVc:(UIViewController *)leftVc offset:(CGFloat)offset margin:(CGFloat)margin;
+- (instancetype)initWithLeftVc:(UIViewController *)leftVc centerVc:(UIViewController *)centerVc offset:(CGFloat)offset margin:(CGFloat)margin;
 
 
 @end

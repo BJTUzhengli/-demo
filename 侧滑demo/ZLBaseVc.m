@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong)UIView *contentView;
 @property (nonatomic, strong)UIViewController *the_leftVc;
-
+@property (nonatomic, strong)UIViewController *the_centerVc;
 @property (nonatomic, assign)BOOL showLeftView;
 
 @property (nonatomic,assign) CGPoint originalPoint;
@@ -45,11 +45,14 @@
 
 }
 
-- (instancetype)initWithLeftVc:(UIViewController *)leftVc offset:(CGFloat)offset margin:(CGFloat)margin{
+- (instancetype)initWithLeftVc:(UIViewController *)leftVc centerVc:(UIViewController *)centerVc offset:(CGFloat)offset margin:(CGFloat)margin{
     if (self = [super init]) {
         self.offset = offset;
         self.margin = margin;
 
+        self.the_leftVc = leftVc;
+        self.the_centerVc = centerVc;
+        
         //设置阴影
         self.view.layer.shadowColor = [UIColor blackColor].CGColor;
         self.view.layer.shadowOpacity = 1.0;
@@ -58,16 +61,15 @@
         self.view.clipsToBounds = NO;
         
 
-        [self setUpSubviewsWithLeftVc:leftVc ];
+        [self setUpSubviewsWithLeftVc:leftVc centerVc:centerVc];
         [self setUpPanGe];
         
     }
     return self;
 }
 
-- (void)setUpSubviewsWithLeftVc:(UIViewController *)leftVc{
+- (void)setUpSubviewsWithLeftVc:(UIViewController *)leftVc centerVc:(UIViewController *)centerVc{
     
-    self.the_leftVc = leftVc;
 
     
     self.contentView = [[UIView alloc] init];
@@ -84,11 +86,15 @@
     self.the_leftVc.view.x = - (self.the_leftVc.view.width -  _offset);
     self.the_leftVc.view.y = 0;
     
+    [self.contentView addSubview:self.the_centerVc.view];
+    self.the_centerVc.view.frame = self.actionView.frame;
+
     
     [self.contentView addSubview:self.the_leftVc.view];
-    self.actionView.alpha  = 0.4;
     [self.contentView addSubview:self.actionView];
     
+    
+    [self addChildViewController:self.the_centerVc];
     [self addChildViewController:self.the_leftVc];
     
 }
