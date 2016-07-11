@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B4809B41D33906100A020FB /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4809B21D33906100A020FB /* UIView+Extension.m */; };
-		1B4809B71D33917800A020FB /* ZLTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4809B61D33917800A020FB /* ZLTableVc.m */; };
+		1B4809BA1D33AD7B00A020FB /* LeftVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4809B91D33AD7B00A020FB /* LeftVc.m */; };
 		1B6855981D337D09001EA687 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855971D337D09001EA687 /* main.m */; };
 		1B68559B1D337D09001EA687 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B68559A1D337D09001EA687 /* AppDelegate.m */; };
 		1B6855B41D337D09001EA687 /* __demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855B31D337D09001EA687 /* __demoTests.m */; };
@@ -36,8 +36,8 @@
 /* Begin PBXFileReference section */
 		1B4809B21D33906100A020FB /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		1B4809B31D33906100A020FB /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		1B4809B51D33917800A020FB /* ZLTableVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLTableVc.h; sourceTree = "<group>"; };
-		1B4809B61D33917800A020FB /* ZLTableVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLTableVc.m; sourceTree = "<group>"; };
+		1B4809B81D33AD7A00A020FB /* LeftVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftVc.h; sourceTree = "<group>"; };
+		1B4809B91D33AD7B00A020FB /* LeftVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftVc.m; sourceTree = "<group>"; };
 		1B6855931D337D09001EA687 /* 侧滑demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "侧滑demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6855971D337D09001EA687 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B6855991D337D09001EA687 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 				1B68559A1D337D09001EA687 /* AppDelegate.m */,
 				1B6855CC1D337D72001EA687 /* ZLBaseVc.h */,
 				1B6855CD1D337D72001EA687 /* ZLBaseVc.m */,
-				1B4809B51D33917800A020FB /* ZLTableVc.h */,
-				1B4809B61D33917800A020FB /* ZLTableVc.m */,
+				1B4809B81D33AD7A00A020FB /* LeftVc.h */,
+				1B4809B91D33AD7B00A020FB /* LeftVc.m */,
 				1B4809B21D33906100A020FB /* UIView+Extension.m */,
 				1B4809B31D33906100A020FB /* UIView+Extension.h */,
 				1B6855AA1D337D09001EA687 /* Info.plist */,
@@ -272,7 +272,7 @@
 				1B6855981D337D09001EA687 /* main.m in Sources */,
 				1B4809B41D33906100A020FB /* UIView+Extension.m in Sources */,
 				1B6855CE1D337D72001EA687 /* ZLBaseVc.m in Sources */,
-				1B4809B71D33917800A020FB /* ZLTableVc.m in Sources */,
+				1B4809BA1D33AD7B00A020FB /* LeftVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

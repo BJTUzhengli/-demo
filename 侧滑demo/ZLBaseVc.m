@@ -11,6 +11,7 @@
 
 #import "ZLBaseVc.h"
 #import "UIView+Extension.h"
+#import "LeftVc.h"
 #define ZLScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ZLScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -23,13 +24,15 @@
 
 
 @property (nonatomic, strong)UIView *contentView;
-@property (nonatomic, strong)UIViewController *leftVc;
+@property (nonatomic, strong)LeftVc *the_leftVc;
 
 @property (nonatomic, assign)BOOL showLeftView;
 
 @property (nonatomic,assign) CGPoint originalPoint;
 
 @property (nonatomic, strong) UIView *actionView;
+
+@property (nonatomic, assign) CGFloat leftViewWidth;
 @end
 
 @implementation ZLBaseVc
@@ -45,28 +48,47 @@
 - (instancetype)initWithLeftVc:(UIViewController *)leftVc{
     if (self = [super init]) {
         
-        self.contentView = [[UIView alloc] init];
-        [self.view addSubview:self.contentView];
-        self.actionView = [[UIView alloc] init];
-        self.leftVc = leftVc;
-        [self addChildViewController:self.leftVc];
-        CGFloat contentX = - leftVc.view.width;
-        CGFloat contentWidth = leftVc.view.width + self.view.width;
-        self.contentView.frame = CGRectMake(contentX, 0, contentWidth, self.view.height);
-        self.contentView.backgroundColor = [UIColor whiteColor];
-        [self.contentView addSubview:self.leftVc.view];
-        
-        self.actionView.size = self.view.size;
-        self.actionView.x = self.contentView.width - self.leftVc.view.width;
-        self.actionView.y = 0;
-        [self.contentView addSubview:self.actionView];
 
-        [self setUpPanGe];
         
+        [self setUpSubviewsWithLeftVc:leftVc];
+        
+        [self setUpPanGe];
+
 
     }
     
     return self;
+}
+
+- (void)setUpSubviewsWithLeftVc:(UIViewController *)leftVc{
+    
+    self.the_leftVc =(LeftVc *)leftVc;
+    self.leftViewWidth = self.the_leftVc.tabelViewLeft;
+
+    
+    self.contentView = [[UIView alloc] init];
+    self.contentView.backgroundColor = [UIColor grayColor];
+    self.contentView.frame = CGRectMake( - self.the_leftVc.tabelViewLeft,
+                                        0,
+                                        self.view.width + self.the_leftVc.tabelViewLeft,
+                                        self.view.height);
+    [self.view addSubview:self.contentView];
+    
+    self.actionView = [[UIView alloc] init];
+    self.actionView.frame = self.view.frame;
+    self.actionView.width = self.contentView.width;
+    
+    self.the_leftVc.view.x = - (self.the_leftVc.view.width -  self.the_leftVc.tabelViewLeft);
+    self.the_leftVc.view.y = 0;
+    
+    
+    [self.contentView addSubview:self.the_leftVc.view];
+    self.actionView.backgroundColor = [UIColor orangeColor];
+    self.actionView.alpha  = 0.4;
+    [self.contentView addSubview:self.actionView];
+    
+    [self addChildViewController:self.the_leftVc];
+    
 }
 
 
@@ -76,7 +98,7 @@
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAc:)];
     
     pan.delegate = self;
-    [self.contentView addGestureRecognizer:pan];
+    [self.actionView addGestureRecognizer:pan];
     
 }
 
@@ -84,49 +106,52 @@
     
     CGPoint currentPoint = [pan locationInView:self.actionView];
     CGFloat HoriDistance = currentPoint.x - self.originalPoint.x;
-    self.contentView.x += HoriDistance;
-    
-    CGFloat contentViewMoveDistance = self.contentView.x + self.leftVc.view.width;
+
+    self.contentView.x = self.contentView.x > 10.0f ? self.contentView.x : self.contentView.x + HoriDistance ;
+    CGFloat contentViewMoveDistance =  self.the_leftVc.tabelViewLeft + self.contentView.x;
     NSLog(@"%lf",contentViewMoveDistance);
+    
+    
     if (pan.state == UIGestureRecognizerStateEnded) {
-        if (contentViewMoveDistance> maxMagrin) {
+        if (contentViewMoveDistance > ZLScreenWidth * 0.5) {
             [self holdContentView];
-        }else if (HoriDistance < maxMagrin){
+        }else if (HoriDistance < ZLScreenWidth * 0.5){
             [self resetContentView];
         }
     }
+    
 }
 
 
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     self.originalPoint = [gestureRecognizer locationInView:self.actionView];
-    
-//    CGPoint startPoint = [gestureRecognizer locationInView:self.contentView];
-//    
-//    if (startPoint.x - self.leftVc.view.width > 40) {
-//        return NO;
-//    }
     return YES;
 }
 
 - (void)resetContentView{
-    self.showLeftView = NO;
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         CGFloat contentX = - _leftVc.view.width;
-                         CGFloat contentWidth = _leftVc.view.width + self.view.width;
-                         self.contentView.frame = CGRectMake(contentX, 0, contentWidth, self.view.height);
-                     }];
+
+    self.actionView.userInteractionEnabled = NO;
+
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.x = - self.leftViewWidth;
+
+    } completion:^(BOOL finished) {
+        self.actionView.userInteractionEnabled = YES;
+    }];
 }
 
 - (void)holdContentView{
-    self.showLeftView = YES;
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         CGFloat contentViewShouldHoldX =  - self.leftVc.view.width + maxMagrin;
-                         self.contentView.x = contentViewShouldHoldX;
-                     }];
+
+    self.actionView.userInteractionEnabled = NO;
+
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.x = 0;
+
+    } completion:^(BOOL finished) {
+        self.actionView.userInteractionEnabled = YES;
+
+    }];
 }
 
 

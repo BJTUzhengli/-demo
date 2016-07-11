@@ -1,5 +1,5 @@
 //
-//  ZLTableVc.h
+//  LeftVc.h
 //  侧滑demo
 //
 //  Created by 征里 on 16/7/11.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZLTableVc : UITableViewController
+@interface LeftVc : UIViewController
+
+
+@property (nonatomic, assign) CGFloat tabelViewLeft;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZLBaseVc.h"
-#import "ZLTableVc.h"
+#import "LeftVc.h"
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
@@ -21,7 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    self.window.rootViewController = [[ZLBaseVc alloc] initWithLeftVc:[[ZLTableVc alloc] init]];
+    self.window.rootViewController = [[ZLBaseVc alloc] initWithLeftVc:[[LeftVc alloc] init]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     
