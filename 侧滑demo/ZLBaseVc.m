@@ -50,6 +50,14 @@
         self.offset = offset;
         self.margin = margin;
 
+        //设置阴影
+        self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.view.layer.shadowOpacity = 1.0;
+        self.view.layer.shadowRadius = 5.0;
+        self.view.layer.shadowOffset = CGSizeMake(0, 1);
+        self.view.clipsToBounds = NO;
+        
+
         [self setUpSubviewsWithLeftVc:leftVc ];
         [self setUpPanGe];
         
@@ -67,13 +75,12 @@
                                         0,
                                         self.view.width + _offset,
                                         self.view.height);
-    self.contentView.backgroundColor = [UIColor grayColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.contentView];
     
     self.actionView = [[UIView alloc] init];
     self.actionView.frame = self.view.frame;
     self.actionView.x += self.offset;
-    
     self.the_leftVc.view.x = - (self.the_leftVc.view.width -  _offset);
     self.the_leftVc.view.y = 0;
     
