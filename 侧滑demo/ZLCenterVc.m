@@ -29,8 +29,8 @@
 - (void)leftAction{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"leftAction" object:nil];
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    
+//}
 
 @end

@@ -10,7 +10,7 @@
 #import "UIView+Extension.h"
 #import "Head.h"
 
-@interface LeftVc()<UITableViewDelegate>
+@interface LeftVc()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 @implementation LeftVc
@@ -20,8 +20,8 @@
     
     UITableView *tableview = [[UITableView alloc] init];
     tableview.delegate = self;
-
-
+    tableview.dataSource = self;
+    
     tableview.frame = CGRectMake(self.view.width - tableviewWidth, 0, tableviewWidth, self.view.height);
     
     tableview.backgroundColor = [UIColor whiteColor];
@@ -30,10 +30,20 @@
     [self.view addSubview:tableview];
 
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell =[[UITableViewCell alloc] init];
+    cell.textLabel.text = @"test!";
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 @end
