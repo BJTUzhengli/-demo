@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "ZLBaseVc.h"
 #import "LeftVc.h"
 #import "Head.h"
 #import "ZLCenterVc.h"
 #import "LZNaviVc.h"
+#import "MTSideslipBaseVc.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -30,7 +30,7 @@
     
     [navi addChildViewController:centerVC];
 
-    self.window.rootViewController = [[ZLBaseVc alloc] initWithLeftVc:[[LeftVc alloc] init] centerVc:navi offset:tableviewWidth margin:margin];
+    self.window.rootViewController = [[MTSideslipBaseVc alloc] initWithLeftVc:[[LeftVc alloc] init] centerVc:navi offset:tableviewWidth margin:margin];
     
     self.window.backgroundColor = [UIColor whiteColor];
     

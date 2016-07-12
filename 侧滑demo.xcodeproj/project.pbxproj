@@ -13,7 +13,7 @@
 		1B68559B1D337D09001EA687 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B68559A1D337D09001EA687 /* AppDelegate.m */; };
 		1B6855B41D337D09001EA687 /* __demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855B31D337D09001EA687 /* __demoTests.m */; };
 		1B6855BF1D337D09001EA687 /* __demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855BE1D337D09001EA687 /* __demoUITests.m */; };
-		1B6855CE1D337D72001EA687 /* ZLBaseVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855CD1D337D72001EA687 /* ZLBaseVc.m */; };
+		1B6855CE1D337D72001EA687 /* MTSideslipBaseVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6855CD1D337D72001EA687 /* MTSideslipBaseVc.m */; };
 		1B7A28521D33E55A00C207B1 /* Head.h in Sources */ = {isa = PBXBuildFile; fileRef = 1B7A28511D33E55A00C207B1 /* Head.h */; };
 		1BAFF9D91D33F326006A53D1 /* ZLCenterVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAFF9D81D33F326006A53D1 /* ZLCenterVc.m */; };
 		1BAFF9DC1D33F369006A53D1 /* LZNaviVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAFF9DB1D33F369006A53D1 /* LZNaviVc.m */; };
@@ -52,8 +52,8 @@
 		1B6855BA1D337D09001EA687 /* 侧滑demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "侧滑demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6855BE1D337D09001EA687 /* __demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __demoUITests.m; sourceTree = "<group>"; };
 		1B6855C01D337D09001EA687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B6855CC1D337D72001EA687 /* ZLBaseVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLBaseVc.h; sourceTree = "<group>"; };
-		1B6855CD1D337D72001EA687 /* ZLBaseVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLBaseVc.m; sourceTree = "<group>"; };
+		1B6855CC1D337D72001EA687 /* MTSideslipBaseVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSideslipBaseVc.h; sourceTree = "<group>"; };
+		1B6855CD1D337D72001EA687 /* MTSideslipBaseVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSideslipBaseVc.m; sourceTree = "<group>"; };
 		1B7A28511D33E55A00C207B1 /* Head.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Head.h; sourceTree = "<group>"; };
 		1BAFF9D71D33F326006A53D1 /* ZLCenterVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCenterVc.h; sourceTree = "<group>"; };
 		1BAFF9D81D33F326006A53D1 /* ZLCenterVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCenterVc.m; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 				1B68559A1D337D09001EA687 /* AppDelegate.m */,
 				1BAFF9DA1D33F369006A53D1 /* LZNaviVc.h */,
 				1BAFF9DB1D33F369006A53D1 /* LZNaviVc.m */,
-				1B6855CC1D337D72001EA687 /* ZLBaseVc.h */,
-				1B6855CD1D337D72001EA687 /* ZLBaseVc.m */,
+				1B6855CC1D337D72001EA687 /* MTSideslipBaseVc.h */,
+				1B6855CD1D337D72001EA687 /* MTSideslipBaseVc.m */,
 				1B4809B81D33AD7A00A020FB /* LeftVc.h */,
 				1B4809B91D33AD7B00A020FB /* LeftVc.m */,
 				1BAFF9D71D33F326006A53D1 /* ZLCenterVc.h */,
@@ -287,7 +287,7 @@
 				1B7A28521D33E55A00C207B1 /* Head.h in Sources */,
 				1B6855981D337D09001EA687 /* main.m in Sources */,
 				1B4809B41D33906100A020FB /* UIView+Extension.m in Sources */,
-				1B6855CE1D337D72001EA687 /* ZLBaseVc.m in Sources */,
+				1B6855CE1D337D72001EA687 /* MTSideslipBaseVc.m in Sources */,
 				1B4809BA1D33AD7B00A020FB /* LeftVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

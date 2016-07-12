@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZLBaseVc : UIViewController
 
+@interface MTSideslipBaseVc : UIViewController
 
 /**
  *  制定一个左滑控制器
@@ -21,9 +21,5 @@
  *  @return
  */
 - (instancetype)initWithLeftVc:(UIViewController *)leftVc centerVc:(UIViewController *)centerVc offset:(CGFloat)offset margin:(CGFloat)margin;
-
-- (void)resetContentView;
-
-- (void)holdContentView;
 
 @end

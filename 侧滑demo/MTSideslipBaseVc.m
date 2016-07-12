@@ -9,9 +9,9 @@
 //  Copyright © 2016年 征里. All rights reserved.
 //
 
-#import "ZLBaseVc.h"
+#import "MTSideslipBaseVc.h"
 #import "UIView+Extension.h"
-#import "LeftVc.h"
+
 #define ZLScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ZLScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -19,7 +19,7 @@
 
 
 
-@interface ZLBaseVc()<UIGestureRecognizerDelegate>
+@interface MTSideslipBaseVc()<UIGestureRecognizerDelegate>
 
 
 
@@ -34,7 +34,7 @@
 @property (nonatomic, assign) CGFloat margin;
 @end
 
-@implementation ZLBaseVc
+@implementation MTSideslipBaseVc
 
 
 - (void)viewDidLoad{
@@ -161,6 +161,7 @@
         [self holdContentView];
     }
 }
+
 
 
 
